@@ -226,6 +226,7 @@
                 <div class="glass-panel px-1 py-1 flex items-center font-display min-w-max">
                     <a href="#home" class="px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition">Home</a>
                     <a href="#about" class="px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition">About Me</a>
+                    <a href="#projects" class="px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition">Projects</a>
                     <a href="#experience" class="px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition">Experience</a>
                     <a href="#contact" class="px-6 md:px-8 py-2 bg-white text-black text-[10px] uppercase tracking-widest font-bold rounded-[18px] transition">Connect</a>
                 </div>
@@ -399,6 +400,90 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+<!-- Recent Projects Section (Carousel) DENGAN GAMBAR/VIDEO -->
+    <section id="projects" class="py-16 md:py-20 px-6 md:px-8 z-10 relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Jarak margin bawah (mb) didekatkan dari mb-12 sm:mb-20 menjadi mb-6 sm:mb-8 -->
+            <div class="mb-6 sm:mb-8 text-center md:text-left reveal">
+                <h2 class="text-4xl sm:text-5xl font-bold font-display text-3d-ela uppercase">RECENT <span class="text-sky-400">PROJECTS</span></h2>
+            </div>
+            
+            <div class="relative group reveal" style="transition-delay: 0.2s;">
+                <!-- Tombol Navigasi Kiri -->
+                <button class="hidden md:flex absolute -left-4 lg:-left-8 top-[45%] -translate-y-1/2 z-20 w-12 h-12 lg:w-14 lg:h-14 glass-panel items-center justify-center hover:bg-white/10 hover:scale-110 transition duration-300 bg-black/40 backdrop-blur-xl" onclick="document.getElementById('carousel').scrollBy({left: -350, behavior: 'smooth'})">
+                    <i class="fas fa-chevron-left text-xl text-emerald-400"></i>
+                </button>
+                
+                <!-- Kontainer Carousel -->
+                <div id="carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-16 pt-4 px-6 -mx-6 hide-scrollbar" style="scroll-snap-type: x mandatory;">
+                    
+                    <!-- Project Card 1: Fresh Mart -->
+                    <a href="https://www.figma.com/design/cBfy5iPUx5vxS3oF5CeApK/Fresh--Copy-?node-id=1-2&t=6JUHzMdKaqRVbicQ-1" target="_blank" class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-[400px] glass-panel p-5 flex flex-col group border-t-emerald-400/20 hover:border-t-emerald-400/50 block">
+                        <div class="w-full h-48 sm:h-52 rounded-2xl bg-black/50 border border-white/10 mb-4 overflow-hidden relative flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=600&q=80" alt="Fresh Mart App" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition duration-700">
+                        </div>
+                        <p class="text-[10px] font-bold text-emerald-400 tracking-widest mb-1 font-display">SEMESTER 3</p>
+                        <h3 class="text-xl font-bold mb-1 font-display text-white group-hover:text-emerald-300 transition">Fresh Mart Mobile App</h3>
+                        <p class="text-sm text-white/60 mb-4 flex-grow leading-relaxed">Tugas kuliah Interaksi Manusia dan Komputer. Desain antarmuka pengguna untuk aplikasi mobile Fresh Mart.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[9px] uppercase tracking-widest text-emerald-400 font-display font-bold">Figma</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[9px] uppercase tracking-widest text-white/50 font-display font-bold">UI/UX</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Project Card 2: LinkedIn -->
+                    <a href="https://www.figma.com/design/7GeRtWCgFrulM4fyVoRFDl/Project-BelajarLinkedIn?node-id=0-1&p=f&t=NXPuReEqZv9KV3z1-0" target="_blank" class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-[400px] glass-panel p-5 flex flex-col group border-t-sky-400/20 hover:border-t-sky-400/50 block">
+                        <div class="w-full h-48 sm:h-52 rounded-2xl bg-black/50 border border-white/10 mb-4 overflow-hidden relative flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="LinkedIn Project" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition duration-700">
+                        </div>
+                        <p class="text-[10px] font-bold text-sky-400 tracking-widest mb-1 font-display">21 AGUSTUS 2025</p>
+                        <h3 class="text-xl font-bold mb-1 font-display text-white group-hover:text-sky-300 transition">LinkedIn UI Clone</h3>
+                        <p class="text-sm text-white/60 mb-4 flex-grow leading-relaxed">Proyek eksplorasi dan pembelajaran UI/UX dalam mendesain ulang tata letak antarmuka aplikasi LinkedIn.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[9px] uppercase tracking-widest text-sky-400 font-display font-bold">Figma</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[9px] uppercase tracking-widest text-white/50 font-display font-bold">Web Design</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 3 (Placeholder) -->
+                    <div class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-[400px] glass-panel p-5 flex flex-col group border-t-emerald-400/20 hover:border-t-emerald-400/50">
+                        <div class="w-full h-48 sm:h-52 rounded-2xl bg-black/50 border border-white/10 mb-4 overflow-hidden relative flex items-center justify-center">
+                            <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition duration-700">
+                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <p class="text-[10px] font-bold text-emerald-400 tracking-widest mb-1 font-display">2024 - 2025</p>
+                        <h3 class="text-xl font-bold mb-1 font-display text-white group-hover:text-emerald-300 transition">Digital Content</h3>
+                        <p class="text-sm text-white/60 mb-4 flex-grow leading-relaxed">Produksi dan editing video kreatif untuk keperluan kampanye media sosial serta dokumentasi kegiatan organisasi.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[9px] uppercase tracking-widest text-emerald-400 font-display font-bold">CapCut</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[9px] uppercase tracking-widest text-white/50 font-display font-bold">Videography</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 (Placeholder) -->
+                    <div class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-[400px] glass-panel p-5 flex flex-col group border-t-sky-400/20 hover:border-t-sky-400/50">
+                        <div class="w-full h-48 sm:h-52 rounded-2xl bg-black/50 border border-white/10 mb-4 overflow-hidden relative flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80" alt="Graphic Design Project" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition duration-700">
+                        </div>
+                        <p class="text-[10px] font-bold text-sky-400 tracking-widest mb-1 font-display">2025</p>
+                        <h3 class="text-xl font-bold mb-1 font-display text-white group-hover:text-sky-300 transition">Visual Identity</h3>
+                        <p class="text-sm text-white/60 mb-4 flex-grow leading-relaxed">Pembuatan desain elemen grafis dan poster kreatif untuk memperkuat identitas visual acara dan instansi.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[9px] uppercase tracking-widest text-sky-400 font-display font-bold">CorelDRAW</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-[9px] uppercase tracking-widest text-white/50 font-display font-bold">Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol Navigasi Kanan -->
+                <button class="hidden md:flex absolute -right-4 lg:-right-8 top-[45%] -translate-y-1/2 z-20 w-12 h-12 lg:w-14 lg:h-14 glass-panel items-center justify-center hover:bg-white/10 hover:scale-110 transition duration-300 bg-black/40 backdrop-blur-xl" onclick="document.getElementById('carousel').scrollBy({left: 350, behavior: 'smooth'})">
+                    <i class="fas fa-chevron-right text-xl text-sky-400"></i>
+                </button>
             </div>
         </div>
     </section>
