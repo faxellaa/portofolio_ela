@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ela | Portofolio Spasial</title>
+    <!-- Favicon: Membuat ikon di tab browser agar tidak kosong -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='f' x1='0' y1='1' x2='0' y2='0'><stop offset='0%' stop-color='%2310b981'/><stop offset='100%' stop-color='%230ea5e9'/></linearGradient></defs><path d='M50 5 L90 25 L90 75 L50 95 L10 75 L10 25 Z' fill='none' stroke='url(%23f)' stroke-width='6'/><path d='M50 5 L50 30 M10 25 L30 50 M10 75 L50 70 M50 95 L50 70 M90 75 L70 50 M90 25 L50 30 M50 30 L30 50 L50 70 L70 50 Z' fill='none' stroke='url(%23f)' stroke-width='2' opacity='0.6'/><circle cx='50' cy='50' r='8' fill='url(%23f)'/></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -206,6 +208,33 @@
         /* Hide Scrollbar helper untuk navbar mobile tetap ada */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* --- BAGIAN NAVIGASI BARU --- */
+
+        /* 1. Aturan Dasar Semua Nav Link */
+        .nav-link {
+            color: #ffffff !important; /* Pastikan teks selalu putih secara default */
+            transition: all 0.3s ease;
+        }
+
+        /* 2. Saat Kursor Di Atas (Hover) */
+        .nav-link:hover {
+            color: #ffffff !important; 
+            background-color: rgba(255, 255, 255, 0.1); /* Latar belakang putih transparan tipis */
+        }
+
+        /* 3. Saat Sedang Diklik (Active State) */
+        .nav-link:active {
+            transform: scale(0.95); /* Efek sedikit mengecil saat ditekan */
+            color: #ffffff !important;
+        }
+
+        /* 4. Saat Bagian Tersebut Sedang Dipilih (Selected/Active Class) */
+        .nav-link.active {
+            background-color: #ffffff !important; /* Latar Emerald solid */
+            color: #000000 !important;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -224,11 +253,11 @@
             </div>
             <div class="w-full md:w-auto overflow-x-auto hide-scrollbar flex justify-center md:block pb-2 md:pb-0 px-2 md:px-0">
                 <div class="glass-panel px-1 py-1 flex items-center font-display min-w-max">
-                    <a href="#home" class="px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition">Home</a>
-                    <a href="#about" class="px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition">About</a>
-                    <a href="#projects" class="px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition">Projects</a>
-                    <a href="#experience" class="px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition">Experience</a>
-                    <a href="#contact" class="px-6 md:px-8 py-2 bg-white text-black text-[10px] uppercase tracking-widest font-bold rounded-[18px] transition">Contact</a>
+                    <a href="#home" class="nav-link px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition duration-300">Home</a>
+                    <a href="#about" class="nav-link px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition duration-300">About</a>
+                    <a href="#projects" class="nav-link px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition duration-300">Projects</a>
+                    <a href="#experience" class="nav-link px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition duration-300">Experience</a>
+                    <a href="#contact" class="nav-link px-4 md:px-6 py-2 text-[10px] uppercase tracking-widest font-bold hover:bg-white/10 rounded-[18px] transition duration-300">Contact</a>
                 </div>
             </div>
         </div>
@@ -748,15 +777,38 @@
             mouseY = e.clientY - window.innerHeight / 2;
         });
 
-        // --- REVEAL ---
-        function reveal() {
+        // --- REVEAL & SCROLL SPY LOGIC ---
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        function handleScroll() {
+            let current = "";
+            const scrollPos = window.pageYOffset;
+
+            // Reveal Animation Logic
             document.querySelectorAll(".reveal").forEach(el => {
                 if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active");
             });
+
+            // Scroll Spy Logic
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollPos >= sectionTop - 150) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active");
+                }
+            });
         }
 
-        window.addEventListener("scroll", reveal);
-        window.onload = () => { init3D(); reveal(); };
+        window.addEventListener("scroll", handleScroll);
+        window.onload = () => { init3D(); handleScroll(); };
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
